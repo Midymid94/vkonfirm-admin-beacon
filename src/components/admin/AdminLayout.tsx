@@ -15,7 +15,7 @@ const mockUser: UserProfile = {
 
 const AdminLayout: React.FC = () => {
   return (
-    <SidebarProvider collapsedWidth={64}>
+    <SidebarProvider> {/* Removed collapsedWidth prop */}
       <div className="flex min-h-screen w-full flex-col bg-background">
         <AdminHeader user={mockUser} />
         <div className="flex flex-1">

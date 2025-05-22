@@ -11,7 +11,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, Users, ShoppingCart, Settings as SettingsIcon, Building } from 'lucide-react'; // Added Building for Companies
+import { LayoutDashboard, Users, ShoppingCart, Settings as SettingsIcon, Building } from 'lucide-react';
 
 const navItems = [
   { title: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
@@ -22,8 +22,9 @@ const navItems = [
 ];
 
 const AdminSidebar: React.FC = () => {
-  const { collapsed } = useSidebar();
+  const { state } = useSidebar(); // Changed from 'collapsed' to 'state'
   const location = useLocation();
+  const collapsed = state === 'collapsed'; // Derive collapsed boolean from state
 
   const getNavCls = (path: string) => {
     return cn(
@@ -41,7 +42,7 @@ const AdminSidebar: React.FC = () => {
         "border-r bg-card transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-64"
       )}
-      collapsible
+      collapsible="icon" // Changed from true to "icon"
     >
       <SidebarTrigger className="absolute top-3 right-3 lg:hidden" /> {/* Mobile trigger */}
       <SidebarContent className="flex flex-col">
