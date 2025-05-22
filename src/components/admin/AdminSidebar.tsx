@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -11,7 +10,13 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, Users, ShoppingCart, Settings as SettingsIcon, Building } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Users,
+  ShoppingCart,
+  Settings as SettingsIcon,
+  Building,
+} from "lucide-react";
 
 const navItems = [
   { title: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
@@ -24,13 +29,13 @@ const navItems = [
 const AdminSidebar: React.FC = () => {
   const { state } = useSidebar();
   const location = useLocation();
-  const collapsed = state === 'collapsed';
+  const collapsed = state === "collapsed";
 
   const getNavCls = (path: string) => {
     return cn(
       "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
       location.pathname === path
-        ? "bg-vkonfirm-primary text-primary-foreground hover:bg-vkonfirm-primary/90"
+        ? "bg-vkonfirm-secondary text-white hover:bg-vkonfirm-secondary/90" // Changed active color
         : "text-foreground hover:bg-muted hover:text-accent-foreground",
       collapsed ? "justify-center" : ""
     );
@@ -44,11 +49,18 @@ const AdminSidebar: React.FC = () => {
       )}
       collapsible="icon"
     >
-      <SidebarTrigger className="absolute top-3 right-3 lg:hidden" /> {/* Mobile trigger */}
+      <SidebarTrigger className="absolute top-3 right-3 lg:hidden" />{" "}
+      {/* Mobile trigger */}
       <SidebarContent className="flex flex-col">
-        <SidebarMenu className="list-none flex-1 p-2 mt-4"> {/* Added mt-4 */}
-          {navItems.map((item) => (
-            <SidebarMenuItem key={item.title}>
+        <div className="mt-12 pt-5" />
+        <SidebarMenu className="list-none flex-1 p-5">
+          {" "}
+          {/* Added mt-4 */}
+          {navItems.map((item, idx) => (
+            <SidebarMenuItem
+              key={item.title}
+              className={idx !== navItems.length - 1 ? "mb-2" : ""}
+            >
               <SidebarMenuButton asChild>
                 <NavLink to={item.href} className={getNavCls(item.href)}>
                   <item.icon className={cn("h-5 w-5", !collapsed && "mr-3")} />
