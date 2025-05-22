@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Sidebar,
   SidebarContent,
-  SidebarMenu, // Added SidebarMenu
+  SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarTrigger,
@@ -46,8 +46,7 @@ const AdminSidebar: React.FC = () => {
     >
       <SidebarTrigger className="absolute top-3 right-3 lg:hidden" /> {/* Mobile trigger */}
       <SidebarContent className="flex flex-col">
-        {/* Replaced nav with SidebarMenu and added list-none, flex-1, p-2 */}
-        <SidebarMenu className="list-none flex-1 p-2"> 
+        <SidebarMenu className="list-none flex-1 p-2 mt-4"> {/* Added mt-4 */}
           {navItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
@@ -66,4 +65,3 @@ const AdminSidebar: React.FC = () => {
 };
 
 export default AdminSidebar;
-

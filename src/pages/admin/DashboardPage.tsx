@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CompanyCard from '@/components/admin/CompanyCard';
 import { Company } from '@/types';
@@ -49,6 +48,10 @@ const mockCompanies: Company[] = [
 ];
 
 const DashboardPage: React.FC = () => {
+  const activeCompanies = mockCompanies.filter(c => c.status === 'Active').length;
+  const expiringCompanies = mockCompanies.filter(c => c.status === 'Expiring').length;
+  const expiredCompanies = mockCompanies.filter(c => c.status === 'Expired').length;
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -68,6 +71,22 @@ const DashboardPage: React.FC = () => {
             <Button className="bg-vkonfirm-primary hover:bg-vkonfirm-primary/90 text-primary-foreground">
                 <PlusCircle className="mr-2 h-4 w-4" /> Add Company
             </Button>
+        </div>
+      </div>
+
+      {/* Analytics Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="bg-card p-4 rounded-lg border">
+          <h3 className="text-sm font-medium text-muted-foreground">Active Companies</h3>
+          <p className="text-2xl font-bold">{activeCompanies}</p>
+        </div>
+        <div className="bg-card p-4 rounded-lg border">
+          <h3 className="text-sm font-medium text-muted-foreground">Expiring Soon</h3>
+          <p className="text-2xl font-bold">{expiringCompanies}</p>
+        </div>
+        <div className="bg-card p-4 rounded-lg border">
+          <h3 className="text-sm font-medium text-muted-foreground">Expired Companies</h3>
+          <p className="text-2xl font-bold">{expiredCompanies}</p>
         </div>
       </div>
 
