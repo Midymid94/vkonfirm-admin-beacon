@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        'vkonfirm-header-bg': '#1A1F2C', // Dark Purple / Dark Charcoal
+        'vkonfirm-primary': '#1EAEDB',    // Bright Blue
+        'vkonfirm-secondary': '#33C3F0', // Sky Blue
+        'vkonfirm-accent-green': '#10B981', // Tailwind green-500
+        'vkonfirm-accent-yellow': '#F59E0B', // Tailwind amber-500
+        'vkonfirm-accent-red': '#EF4444', // Tailwind red-500
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
