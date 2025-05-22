@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,6 +65,8 @@ export default {
         'vkonfirm-header-bg': '#1A1F2C', // Dark Purple / Dark Charcoal
         'vkonfirm-primary': '#1EAEDB',    // Bright Blue
         'vkonfirm-secondary': '#33C3F0', // Sky Blue
+        'vkonfirm-search-bg': '#253047',  // New: Darker blue for search input background
+        'vkonfirm-search-border': '#35425E', // New: Border for search input
         'vkonfirm-accent-green': '#10B981', // Tailwind green-500
         'vkonfirm-accent-yellow': '#F59E0B', // Tailwind amber-500
         'vkonfirm-accent-red': '#EF4444', // Tailwind red-500

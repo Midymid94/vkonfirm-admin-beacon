@@ -4,7 +4,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Search, Settings } from "lucide-react";
+import { Bell, Search } from "lucide-react"; // Removed unused Settings import
 import { UserProfile } from '@/types';
 
 interface AdminHeaderProps {
@@ -23,12 +23,12 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ user }) => {
         <div className="relative w-full max-w-xs hidden sm:block">
           <Input
             type="search"
-            placeholder="Search..."
-            className="w-full bg-slate-700 border-slate-600 text-white placeholder:text-slate-400 pl-10"
+            placeholder="Search Vehicles" // Updated placeholder
+            className="w-full bg-vkonfirm-search-bg border-vkonfirm-search-border text-white placeholder:text-slate-300 pl-10 focus:ring-vkonfirm-primary" // Updated classes
           />
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
         </div>
-        <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-slate-700 hover:text-vkonfirm-secondary">
+        <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-vkonfirm-search-bg hover:text-vkonfirm-secondary"> {/* Matched hover with search input bg */}
           <Bell className="h-5 w-5" />
           <span className="sr-only">Notifications</span>
         </Button>
