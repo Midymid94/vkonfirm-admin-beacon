@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Sidebar,
   SidebarContent,
-  SidebarMenu,
+  SidebarMenu, // Added SidebarMenu
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarTrigger,
@@ -22,9 +22,9 @@ const navItems = [
 ];
 
 const AdminSidebar: React.FC = () => {
-  const { state } = useSidebar(); // Changed from 'collapsed' to 'state'
+  const { state } = useSidebar();
   const location = useLocation();
-  const collapsed = state === 'collapsed'; // Derive collapsed boolean from state
+  const collapsed = state === 'collapsed';
 
   const getNavCls = (path: string) => {
     return cn(
@@ -42,11 +42,12 @@ const AdminSidebar: React.FC = () => {
         "border-r bg-card transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-64"
       )}
-      collapsible="icon" // Changed from true to "icon"
+      collapsible="icon"
     >
       <SidebarTrigger className="absolute top-3 right-3 lg:hidden" /> {/* Mobile trigger */}
       <SidebarContent className="flex flex-col">
-        <nav className="flex-1 space-y-1 p-2">
+        {/* Replaced nav with SidebarMenu and added list-none, flex-1, p-2 */}
+        <SidebarMenu className="list-none flex-1 p-2"> 
           {navItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild>
@@ -58,10 +59,11 @@ const AdminSidebar: React.FC = () => {
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
-        </nav>
+        </SidebarMenu>
       </SidebarContent>
     </Sidebar>
   );
 };
 
 export default AdminSidebar;
+
